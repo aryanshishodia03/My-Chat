@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# AI Chatbot with React (Vite) and Groq API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This is a Vite + React-based AI chatbot application that interacts with the Groq API to generate responses. It demonstrates how to build a chat interface, handle user inputs, and connect with an API securely using environment variables.
 
-Currently, two official plugins are available:
+## Features
+- Modern React with Vite
+- Custom chat UI
+- Secure API key handling using environment variables
+- Simple and extendable code structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Important Files
+- **useChatBot.ts**: Main hook for managing chat messages and API requests
+- **useChatScroll.ts**: Scroll management for chat view
+- **ChatComponent.tsx**: User interface components for chat interaction
 
-## React Compiler
+## Setup Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v16+) installed
+- Git installed
+- A Groq API key (sign up at Groq platform)
 
-## Expanding the ESLint configuration
+### Initial Setup
+1. Clone this repository:
+git clone https://github.com/aryanshishodia03/My-Chat.git
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+text
+2. Navigate to project directory:
+cd My-Chat
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+text
+3. Install dependencies:
+npm install
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+text
+4. Create a `.env` file in the root directory and add your Groq API key:
+VITE_GROQ_API_KEY=your_groq_api_key_here
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+text
+> Make sure to replace `your_groq_api_key_here` with your actual API key.  
+> **Important**: `.env` is included in `.gitignore` to keep your API key secure.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run the Development Server
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+text
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Usage
+Type your message in the input box and press Enter or click the send button. The chat interface will interact with the Groq API and display bot responses.
